@@ -1,0 +1,12 @@
+<html>
+  <head>
+    <title>Confirm Deletion</title>
+  </head>
+  <body>
+    <h3>Are you sure you want to delete the following course?</h3>
+    <p>Name: {{ course.name }}</p>
+    <p>Description: {{ course.description }}</p>
+    <a href="/">No</a>
+    <a href="/deleteentry/{{course.id}}">Yes, Delete This Course</a>
+  </body>
+</html>

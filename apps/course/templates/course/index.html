@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title>Courses Time!</title>
+  </head>
+  <body>
+    <h2>Add a New Course!</h2>
+    <form action='/add' method="POST">
+      {% csrf_token %}
+      <p>Name of Course: <input type='text' name='name'></p>
+      <textarea name='description' rows='5' cols='100' placeholder='Write Description Here!'></textarea>
+      <p><input type='submit' value='Add Course' placeholder='Write Description of Course Here!'></p>
+    </form>
+    <h3>Courses</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Course Name</th>
+          <th>Description</th>
+          <th>Date Added</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for course in courses %}
+        <tr>
+          <td>{{course.name}}</td>
+          <td>{{course.description}}</td>
+          <td>{{course.created_at}}</td>
+          <td><a href='/delete/{{course.id}}'>Delete</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <p>Ready to Start Project!</p>
+  </body>
+</html>
